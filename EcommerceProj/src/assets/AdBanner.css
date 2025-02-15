@@ -1,0 +1,165 @@
+.ad-banner {
+  position: relative;
+  width: 90vw; /* 90% of viewport width */
+  height: 25vw; /* Adjust height proportionally */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* This centers the banner horizontally */
+  transition: all 0.3s ease;
+  margin-bottom: 0.6%;
+}
+
+
+.ad-slide {
+  width: 100%;
+  height: 100%;
+}
+
+.ad-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navigation Buttons */
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2.5rem; /* Adjusted for better responsiveness */
+  padding: 1rem;
+  cursor: pointer;
+  z-index: 10;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+/* Position adjustments for different screen sizes */
+.nav-button.prev {
+  left: 1rem; /* Always keep it visible */
+}
+
+.nav-button.next {
+  right: 1rem;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+}
+
+.close-btn:hover {
+  background-color: #f1f1f1;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .nav-button {
+    font-size: 2rem;
+    width: 45px;
+    height: 45px;
+  }
+
+  .close-btn {
+    font-size: 1rem;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-button {
+    font-size: 1.8rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .close-btn {
+    font-size: 0.9rem;
+    width: 28px;
+    height: 28px;
+  }
+
+  .toggle-btn {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-button {
+    font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+  }
+
+  .close-btn {
+    font-size: 0.8rem;
+    width: 25px;
+    height: 25px;
+  }
+
+  .toggle-btn {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+
+.close-btn:hover {
+  background-color: #f1f1f1; /* Slightly darker background on hover */
+}
+
+/* Ensure the button isn't visible after the ad is collapsed */
+.ad-banner.collapsed .close-btn {
+  display: none;
+}
+
