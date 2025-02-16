@@ -11,9 +11,9 @@ const HomePage = () => {
   return (
     <div>
       <AdBanner />
-      <NavBar />
+      {/* <NavBar /> */}
       <FeaturedSection />
-      <div style={{display:'flex', gap:'1.6%', paddingLeft:'2%'}}>
+      <div style={{ display: 'flex', gap: '1.6%', paddingLeft: '2%' }}>
         <div>
           <Filters />
         </div>

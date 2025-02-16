@@ -2,15 +2,14 @@ import React from 'react'
 import ProductCard from './ProductCard'
 import '../assets/CategorySection.css'
 
-const CategoryProducts = () => {
+const SearchedSection = () => {
   return (
     <div
       className="container mt-5 position-relative"
       style={{ paddingBottom: '2%' }}
     >
       <div className="headings">
-        <h2 className="mb-4"> Category Name</h2>
-        <button className="btn btn-primary">View All</button>
+        <h2 className="mb-4">Searched Products</h2>
       </div>
       <div className="row g-4">
         <div className="col-md-4">
@@ -21,4 +20,4 @@ const CategoryProducts = () => {
   )
 }
 
-export default CategoryProducts
+export default SearchedSection

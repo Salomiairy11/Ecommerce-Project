@@ -2,7 +2,7 @@ import React from 'react'
 import '../assets/FeaturedSection.css'
 
 const FeaturedSection = () => {
-    const title = 'Featured Products'
+  const title = 'Featured Products'
   return (
     <div className="container my-5">
       <div className=" text-center headings">

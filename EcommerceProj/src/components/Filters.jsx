@@ -1,33 +1,27 @@
 import React from 'react'
 import '../assets/Filters.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Filters = () => {
-
+  const [brand, setBrand] = useState([])
+  useEffect(() => {
+    axios
+      .get('http://localhost:7000/brand/')
+      .then((res) => {
+        console.log(res.data)
+        setBrand(res.data)
+      })
+      .catch((err) => console.log(err.message))
+    console.log(brand)
+  }, [])
   return (
     <div style={{ width: '350px' }}>
       <div className="col-lg-3 w-auto">
         <div className="filter-sidebar p-4 shadow-sm">
           <div className="filter-group">
-            <h6 className="mb-3">Categories</h6>
-            <div className="form-check mb-2">
-              <input
-                className="form-check-input"
-                type="radio"
-                id="electronics"
-              />
-              <label className="form-check-label" htmlFor="electronics">
-                Electronics
-              </label>
-            </div>
-          </div>
-          <div className="filter-group">
             <h6 className="mb-3">Price Range</h6>
-            <input
-              type="range"
-              className="form-range"
-              step="1"
-            />
+            <input type="range" className="form-range" step="1" />
             <div className="d-flex justify-content-between">
               <span className="text-muted">$0</span>
               <span className="text-muted">$1000</span>
@@ -36,14 +30,19 @@ const Filters = () => {
           <div className="filter-group">
             <h6 className="mb-3">Brand</h6>
             <div className="form-check mb-2">
-              <input
-                className="form-check-input"
-                type="radio"
-                name="rating"
-                id="rating4"
-              />
               <label className="form-check-label" htmlFor="electronics">
-                Electronics
+                {brand.map((item) => (
+                  <div key={item._id} className="brand-item">
+                    <input
+                      type="checkbox"
+                      id={item._id}
+                      name={item.Brand_name}
+                      className="form-check-input"
+                    />
+                    <span>{item.Brand_name}</span>
+                    <p>{item.description}</p>
+                  </div>
+                ))}
               </label>
             </div>
           </div>

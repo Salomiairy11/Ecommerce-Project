@@ -1,9 +1,21 @@
-import React from 'react'
+import {React, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import '../assets/NavBar.css'
 import { FaShoppingCart } from 'react-icons/fa'
+import axios from 'axios'
 
 const NavBar = () => {
+  const [category, setCategory] = useState([])
+  useEffect(() => {
+    axios
+      .get('http://localhost:7000/category/')
+      .then((res) => {
+        console.log(res.data)
+        setCategory(res.data)
+      })
+      .catch((err) => console.log(err.message))
+    console.log(category)
+  }, [])
   return (
     <nav
       className="navbar sticky-top navbar-expand-lg navbar-light"
@@ -32,9 +44,11 @@ const NavBar = () => {
             <Link to="/home" className="nav-item nav-link active">
               Home
             </Link>
-            <Link to="/profile" className="nav-item nav-link">
-              Profile
-            </Link>
+              {category.map((item) => (
+                <div key={item._id} className="brand-item">
+                  <Link to='/' className="nav-item nav-link active" style={{ display: 'flex' }}>{item.Category_name}</Link>
+                </div>
+              ))}
           </div>
 
           <div className="container">
@@ -54,9 +68,7 @@ const NavBar = () => {
           <div className="d-grid gap-2">
             <div className="cartnav">
               <div className="cart-icon-container">
-                <FaShoppingCart
-                  className="cart-icon"
-                />
+                <FaShoppingCart className="cart-icon" />
                 <span className="cart-badge">0</span>
               </div>
             </div>
