@@ -1,0 +1,17 @@
+const express = require('express')
+const app = express()
+require('dotenv').config()
+port = process.env.PORT
+require('./database/connection.js')
+const cors = require('cors')
+const CategoryRoute = require('./routes/CategoryRoute.js')
+const ProductRoute = require('./routes/ProductRoutes.js')
+const BrandRoute = require('./routes/BrandRoute.js')
+app.use(express.json())
+app.use(cors())
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`)
+})
+app.use('/category', CategoryRoute)
+app.use('/product', ProductRoute)
+app.use('/brand', BrandRoute)
