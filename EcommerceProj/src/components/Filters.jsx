@@ -66,7 +66,6 @@ const Filters = ({ onFilterChange }) => {
               </div>
             ))}
           </div>
-
           <button className="btn btn-outline-primary w-100">
             Apply Filters
           </button>

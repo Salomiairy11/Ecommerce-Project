@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 import '../assets/FeaturedSection.css'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { useCart } from '../context/CartContext'
 
 const FeaturedSection = () => {
   const [products, setProducts] = useState([])
+  const { addToCart } = useCart()
 
   useEffect(() => {
     axios
@@ -46,9 +48,6 @@ const FeaturedSection = () => {
                 <div className="bento-content">
                   <h3>{products[0].Name}</h3>
                   <p style={{ color: 'red' }}>${products[0].Price}</p>
-                  <button className="btn btn-primary btn-sm">
-                    Add to Cart
-                  </button>
                 </div>
               </div>
             </div>
@@ -62,9 +61,6 @@ const FeaturedSection = () => {
                       <div className="bento-content">
                         <h4>{product.Name}</h4>
                         <p style={{ color: 'red' }}>${product.Price}</p>
-                        <button className="btn btn-primary btn-sm">
-                          Add to Cart
-                        </button>
                       </div>
                     </div>
                   </div>
@@ -79,9 +75,6 @@ const FeaturedSection = () => {
                   <div className="bento-content">
                     <h4>{product.Name}</h4>
                     <p style={{ color: 'red' }}>${product.Price}</p>
-                    <button className="btn btn-primary btn-sm">
-                      Add to Cart
-                    </button>
                   </div>
                 </div>
               ))}
@@ -94,9 +87,6 @@ const FeaturedSection = () => {
                   <div className="bento-content">
                     <h4>{product.Name}</h4>
                     <p style={{ color: 'red' }}>${product.Price}</p>
-                    <button className="btn btn-primary btn-sm">
-                      Add to Cart
-                    </button>
                   </div>
                 </div>
               ))}
@@ -109,9 +99,6 @@ const FeaturedSection = () => {
                   <div className="bento-content">
                     <h4>{product.Name}</h4>
                     <p style={{ color: 'red' }}>${product.Price}</p>
-                    <button className="btn btn-primary btn-sm">
-                      Add to Cart
-                    </button>
                   </div>
                 </div>
               ))}

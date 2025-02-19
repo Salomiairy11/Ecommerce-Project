@@ -67,10 +67,7 @@ const HomePage = () => {
         ) : null}
       </div>
       <FeaturedSection />
-      <div style={{ display: 'flex', gap: '1.6%', paddingLeft: '2%' }}>
-        <Filters />
         <CategoryProducts />
-      </div>
       <Footer />
     </div>
   )
